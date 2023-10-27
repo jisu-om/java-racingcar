@@ -1,6 +1,10 @@
 package racingcar.controller;
 
+import racingcar.utils.Validator;
+import racingcar.view.InputView;
 import racingcar.view.OutputView;
+
+import java.util.List;
 
 public class GameController {
 
@@ -27,5 +31,15 @@ public class GameController {
 
     public void determineWinner() {
 
+    }
+
+    private List<String> getCarNames() {
+        String input = InputView.readInput();
+        return Validator.validateCarNames(input);
+    }
+
+    private int getNumberOfRoundsFromUser() {
+        String input = InputView.readInput();
+        return Validator.validateNumberOfRounds(input);
     }
 }

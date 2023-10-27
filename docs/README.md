@@ -1,10 +1,11 @@
 # [ 구현 기능 목록 ]
-- [ ] 시작 문구를 출력한다. 
+- [X] 시작 문구를 출력한다. 
   - GameController#printStart()
   - OutputView#printStartMessage()
 
 
-- [ ] 자동차 이름을 입력받는다. InputView#getCarNames()
+- [X] 자동차 이름을 입력받는다. 
+  - InputView가 아니라 GameController#getCarNames()
 
 
 - [ ] 입력 받은 이름의 예외 처리 진행한다. Validator#validateCarNames()
