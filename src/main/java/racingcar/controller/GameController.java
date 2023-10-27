@@ -1,9 +1,12 @@
 package racingcar.controller;
 
+import racingcar.domain.Car;
+import racingcar.domain.Cars;
 import racingcar.utils.Validator;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class GameController {
@@ -20,22 +23,45 @@ public class GameController {
     private GameController() {
     }
 
-    public void prepareGame() {
+    public void play() {
         OutputView.printStartMessage();
         carNames = getCarNames();
         numberOfRounds = getNumberOfRounds();
+
+        List<Car> carList = new ArrayList<>();
+        for (String carName : carNames) {
+            carList.add(Car.create(carName));
+        }
+        Cars cars = Cars.create(carList);
+
+        //playRound()
+
+
+
+        //printResult()
+
+        String winnerName = getWinnerName(cars);
+        OutputView.printWinnerMessage(winnerName);
     }
 
-    public void playRound() {
+    private void playRound() {
 
     }
 
-    public void printResult() {
+    private void printResult() {
 
     }
 
-    public void determineWinner() {
-
+    private String getWinnerName(Cars cars) {  //TODO 메서드 이름 고민
+        List<Car> winners = cars.calculateWinner();
+        if (winners.size() > 1) {
+            List<String> names = new ArrayList<>();
+            for (Car winner : winners) {
+                names.add(winner.getName());
+            }
+            return String.join(", ", names);
+        }
+        return winners.get(0).getName();
     }
 
     private List<String> getCarNames() {

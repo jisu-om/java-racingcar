@@ -34,7 +34,7 @@
   - Car#move()
 
 
-- [ ] 라운드 결과를 저장한다. 
+- [X] 라운드 결과를 저장한다. 
   - Car 객체의 인스턴스 필드(List<Integer> roundResultList)에 각자 저장  
 
 

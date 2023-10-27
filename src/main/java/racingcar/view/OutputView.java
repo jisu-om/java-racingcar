@@ -16,8 +16,8 @@ public class OutputView {
 
     }
 
-    public static void printWinnerMessage() {
-
+    public static void printWinnerMessage(String winnerName) {
+        System.out.println("최종 우승자 : " + winnerName);
     }
 
 
