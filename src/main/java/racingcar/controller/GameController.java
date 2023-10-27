@@ -24,24 +24,38 @@ public class GameController {
     }
 
     public void play() {
+        prepareGame();
+        Cars cars = createCars();
+        for (int i = 0; i < numberOfRounds; i++) {
+            playRound(cars);
+        }
+        showResult(cars);
+    }
+
+    private void prepareGame() {
         OutputView.printStartMessage();
         carNames = getCarNames();
         numberOfRounds = getNumberOfRounds();
+    }
 
+    private List<String> getCarNames() {
+        String input = InputView.readInput();
+        return Validator.validateCarNames(input);
+    }
+
+    private int getNumberOfRounds() {
+        OutputView.printAskNumberOfRounds();
+        String input = InputView.readInput();
+        return Validator.validateNumberOfRounds(input);
+    }
+
+    private Cars createCars() {
         List<Car> carList = new ArrayList<>();
         for (String carName : carNames) {
             carList.add(Car.create(carName));
         }
         Cars cars = Cars.create(carList);
-
-        for (int i = 0; i < numberOfRounds; i++) {
-            playRound(cars);
-        }
-
-        //printResult()
-
-        String winnerName = getWinnerName(cars);
-        OutputView.printWinnerMessage(winnerName);
+        return cars;
     }
 
     private void playRound(Cars cars) {
@@ -50,7 +64,16 @@ public class GameController {
         }
     }
 
-    private void printResult() {
+    private void showResult(Cars cars) {
+        OutputView.printResultStartMessage();
+        List<List<Boolean>> histories = new ArrayList<>();
+        for (Car car : cars.getCars()) {
+            histories.add(car.getRoundResultHistory());
+        }
+        OutputView.printResult(numberOfRounds, carNames, histories);
+
+        String winnerName = getWinnerName(cars);
+        OutputView.printWinnerMessage(winnerName);
 
     }
 
@@ -64,16 +87,5 @@ public class GameController {
             return String.join(", ", names);
         }
         return winners.get(0).getName();
-    }
-
-    private List<String> getCarNames() {
-        String input = InputView.readInput();
-        return Validator.validateCarNames(input);
-    }
-
-    private int getNumberOfRounds() {
-        OutputView.printAskNumberOfRounds();
-        String input = InputView.readInput();
-        return Validator.validateNumberOfRounds(input);
     }
 }
