@@ -34,9 +34,9 @@ public class GameController {
         }
         Cars cars = Cars.create(carList);
 
-        //playRound()
-
-
+        for (int i = 0; i < numberOfRounds; i++) {
+            playRound(cars);
+        }
 
         //printResult()
 
@@ -44,8 +44,10 @@ public class GameController {
         OutputView.printWinnerMessage(winnerName);
     }
 
-    private void playRound() {
-
+    private void playRound(Cars cars) {
+        for (Car car : cars.getCars()) {
+            car.saveRoundResult();
+        }
     }
 
     private void printResult() {

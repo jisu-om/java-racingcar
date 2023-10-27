@@ -38,7 +38,7 @@
   - Car 객체의 인스턴스 필드(List<Integer> roundResultList)에 각자 저장  
 
 
-- [ ] 라운드를 n회 반복한다. GameController#play()
+- [X] 라운드를 n회 반복한다. GameController#play()
 
 
 - [ ] 실행 결과를 출력한다. 
@@ -46,7 +46,7 @@
   - OutputView#printRoundResult() 를 라운드 총 횟수 만큼 반복 출력
 
 
-- [ ] 최종 우승자를 뽑고 출력한다. 
+- [X] 최종 우승자를 뽑고 출력한다. 
   - GameController#determineWinner()
   - OutputView#printWinnerMessage()
 

@@ -16,6 +16,10 @@ public class Cars {
         return new Cars(cars);
     }
 
+    public List<Car> getCars() {
+        return Collections.unmodifiableList(cars);
+    }
+
     public List<Car> calculateWinner() {
         cars.sort((s1, s2) -> s2.calculateScore() - s1.calculateScore());
 
