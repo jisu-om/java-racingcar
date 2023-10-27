@@ -35,7 +35,6 @@ public class Validator {
     }
 
     public static int validateNumberOfRounds(String input) {
-        //TODO 0, 숫자가 아닌 값은 예외 처리
         int intInput = validateNumeric(input);
         validateIsZero(intInput);
         return intInput;

@@ -7,8 +7,11 @@ import racingcar.view.OutputView;
 import java.util.List;
 
 public class GameController {
-
     private static final GameController instance = new GameController();
+
+    private int numberOfRounds;
+
+    private List<String> carNames;
 
     public static GameController getInstance() {
         return instance;
@@ -17,11 +20,13 @@ public class GameController {
     private GameController() {
     }
 
-    public void printStart() {
+    public void prepareGame() {
         OutputView.printStartMessage();
+        carNames = getCarNames();
+        numberOfRounds = getNumberOfRounds();
     }
 
-    public void play() {
+    public void playRound() {
 
     }
 
@@ -38,7 +43,8 @@ public class GameController {
         return Validator.validateCarNames(input);
     }
 
-    private int getNumberOfRoundsFromUser() {
+    private int getNumberOfRounds() {
+        OutputView.printAskRoundNumber();
         String input = InputView.readInput();
         return Validator.validateNumberOfRounds(input);
     }

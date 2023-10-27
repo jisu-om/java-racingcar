@@ -75,18 +75,42 @@ class ValidatorTest {
                 .isInstanceOf(IllegalArgumentException.class);
     }
 
+    @DisplayName("게임 진행 횟수를 3을 입력하면 정상 진행")
     @Test
-    void split_test() {
-        String[] split1 = "name1,".split(",");
-        System.out.println(split1.length);
-        System.out.println(split1[0]);
-        System.out.println("-----------");
-
-        String[] split2 = "name1, ".split(",");
-        System.out.println(split2.length);
-        System.out.println(split2[0]);
-        System.out.println(split2[1]);  //공백
+    void validate_number_of_rounds() {
+        int number = Validator.validateNumberOfRounds("3");
+        assertThat(number).isEqualTo(3);
     }
+
+    @DisplayName("게임 진행 횟수를 0을 입력하면 예외 발생")
+    @Test
+    void validate_number_of_rounds_x1() {
+        assertThatThrownBy(() -> Validator.validateNumberOfRounds("0"))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
+
+    @DisplayName("게임 진행 횟수를 문자를 입력하면 예외 발생")
+    @Test
+    void validate_number_of_rounds_x2() {
+        assertThatThrownBy(() -> Validator.validateNumberOfRounds("abc"))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
+
+    @DisplayName("게임 진행 횟수를 빈 문자열을 입력하면 예외 발생")
+    @Test
+    void validate_number_of_rounds_x3() {
+        assertThatThrownBy(() -> Validator.validateNumberOfRounds(""))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
+
+    @DisplayName("게임 진행 횟수를 공백을 입력하면 예외 발생")
+    @Test
+    void validate_number_of_rounds_x4() {
+        assertThatThrownBy(() -> Validator.validateNumberOfRounds(" "))
+                .isInstanceOf(IllegalArgumentException.class);
+    }
+
+
 
 
 }

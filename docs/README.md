@@ -8,7 +8,7 @@
   - InputView가 아니라 GameController#getCarNames()
 
 
-- [ ] 입력 받은 이름의 예외 처리 진행한다. Validator#validateCarNames()
+- [X] 입력 받은 이름의 예외 처리 진행한다. Validator#validateCarNames()
   - 이름 파싱 
     - , 로 나눈 후 각각 5자 이하인지 검증 후, Car에게 배분 
       - , 로 나눠지지 않는 경우 예외 발생 
@@ -18,8 +18,9 @@
   - 이름이 하나만 입력된 경우는 어떻게 처리할까? (-> 진행 가능하도록 하자)
 
 
-- [ ] 몇 회 시도할지 입력 받기 (n회) InputView#getNumberOfRoundsFromUser()
-  - [ ] 예외 처리 Validator#validateNumberOfRounds()
+- [X] 몇 회 시도할지 입력 받기 (n회) 
+  - InputView#readLine(), GameController#getNumberOfRounds()
+  - [X] 예외 처리 Validator#validateNumberOfRounds()
     - 0
     - 숫자가 아닌 값 
 
