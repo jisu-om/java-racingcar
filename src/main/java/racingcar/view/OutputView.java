@@ -8,7 +8,7 @@ public class OutputView {
         System.out.println(START_MESSAGE);
     }
 
-    public static void printAskRoundNumber() {
+    public static void printAskNumberOfRounds() {
         System.out.println(ROUND_NUMBER_MESSAGE);
     }
 

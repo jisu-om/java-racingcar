@@ -25,12 +25,12 @@
     - 숫자가 아닌 값 
 
 
-- [ ] 각 자동차는 랜덤 값을 뽑는다.
-  - NumberGenerator#generateRandomNumber()
+- [X] 각 자동차는 랜덤 값을 뽑는다.
   - Car#getRandomNumber()
+  - NumberGenerator#generateRandomNumber()
 
 
-- [ ] 뽑은 값이 4 이상이면 전진한다.
+- [X] 뽑은 값이 4 이상이면 전진한다.
   - Car#move()
 
 

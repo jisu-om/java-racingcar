@@ -44,7 +44,7 @@ public class GameController {
     }
 
     private int getNumberOfRounds() {
-        OutputView.printAskRoundNumber();
+        OutputView.printAskNumberOfRounds();
         String input = InputView.readInput();
         return Validator.validateNumberOfRounds(input);
     }

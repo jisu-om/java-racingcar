@@ -1,5 +1,7 @@
 package racingcar.domain;
 
+import racingcar.utils.NumberGenerator;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,12 +14,12 @@ public class Car {
 
     }
 
-    private boolean move() {
-        return false;
+    private boolean move(int number) {
+        return (number >= MOVEMENT_THRESHOLD);
     }
 
     private int getRandomNumber() {
-        return 0;
+        return NumberGenerator.generateRandomNumber();
     }
 
 
