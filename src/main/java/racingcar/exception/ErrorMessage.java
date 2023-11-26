@@ -5,7 +5,9 @@ public enum ErrorMessage {
     INVALID_CAR_NAMES("유효하지 않은 이름 형식 입니다."),
     DUPLICATE_CAR_NAMES("서로 다른 이름을 입력해 주세요."),
     INVALID_BLANK_CAR_NAME("유효하지 않은 이름 입니다."),
-    INVALID_CAR_NAME_LENGTH("이름은 5자 이하여야 합니다.");
+    INVALID_CAR_NAME_LENGTH("이름은 5자 이하여야 합니다."),
+    NOT_NUMERIC_INPUT("숫자를 입력해 주세요."),
+    NOT_POSITIVE_INPUT("양수를 입력해 주세요.");
 
     private final String message;
 

@@ -2,7 +2,9 @@ package racingcar.controller;
 
 import racingcar.domain.Car;
 import racingcar.domain.Cars;
+import racingcar.domain.TotalRound;
 import racingcar.utils.CarNamesValidator;
+import racingcar.utils.TotalRoundValidator;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
@@ -43,12 +45,10 @@ public class MainController {
         });
     }
 
-    private Orders createOrders() {
+    private TotalRound createTotalRound() {
         return readUserInput(() -> {
-            List<OrderItem> items = inputView.readOrders().stream()
-                    .map(OrderItemDto::toOrderItem)
-                    .toList();
-            return Orders.from(items);
+            long totalRound = inputView.readTotalRound();
+            return TotalRound.from(totalRound);
         });
     }
 
