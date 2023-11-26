@@ -12,4 +12,8 @@ public class Cars {
     public static Cars from(List<Car> cars) {
         return new Cars(cars);
     }
+
+    public void play() {
+        cars.forEach(Car::play);
+    }
 }

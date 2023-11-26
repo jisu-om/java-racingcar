@@ -2,6 +2,8 @@ package racingcar.domain;
 
 import racingcar.utils.CarNamesValidator;
 
+import static racingcar.constants.Constants.MOVE_THRESHOLD;
+
 public class Car {
     private final String name;
     private long position;
@@ -15,5 +17,22 @@ public class Car {
         return new Car(name);
     }
 
+    public void play() {
+        int randomNumber = RandomNumberGenerator.generate();
+        moveOrStop(randomNumber);
+    }
 
+    private void moveOrStop(int randomNumber) {
+        if (randomNumber >= MOVE_THRESHOLD) {
+            position++;
+        }
+    }
+
+    public String provideName() {
+        return name;
+    }
+
+    public long providePosition() {
+        return position;
+    }
 }

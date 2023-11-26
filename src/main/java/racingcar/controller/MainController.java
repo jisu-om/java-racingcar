@@ -3,19 +3,16 @@ package racingcar.controller;
 import racingcar.domain.Car;
 import racingcar.domain.Cars;
 import racingcar.domain.TotalRound;
-import racingcar.utils.CarNamesValidator;
-import racingcar.utils.TotalRoundValidator;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
 import java.util.List;
 import java.util.function.Supplier;
-import java.util.stream.Collectors;
 
 public class MainController {
     private final InputView inputView;
     private final OutputView outputView;
-    //private OrderController orderController;  //컨트롤러 추가하는 경우
+    private PlayController playController;
 
     private MainController(InputView inputView, OutputView outputView) {
         this.inputView = inputView;
@@ -27,13 +24,15 @@ public class MainController {
     }
 
     public void run() {
-        Cars cars = createCars();
-
+        setup();
+        playController.play();
     }
 
-//    private void initializeControllers() {
-//        orderController = OrderController.of(inputView, outputView);
-//    }
+    private void setup() {
+        Cars cars = createCars();
+        TotalRound totalRound = createTotalRound();
+        playController = PlayController.of(outputView, cars, totalRound);
+    }
 
     private Cars createCars() {
         return readUserInput(() -> {

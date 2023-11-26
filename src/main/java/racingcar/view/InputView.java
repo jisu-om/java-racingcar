@@ -32,5 +32,4 @@ public class InputView {
         String input = Console.readLine();
         return TotalRoundValidator.safeParseLong(input);
     }
-
 }

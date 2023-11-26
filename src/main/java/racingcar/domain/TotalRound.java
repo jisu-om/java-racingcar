@@ -13,4 +13,8 @@ public class TotalRound {
         TotalRoundValidator.validatePositive(totalRound);
         return new TotalRound(totalRound);
     }
+
+    public long getTotalRound() {
+        return totalRound;
+    }
 }
