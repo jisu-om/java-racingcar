@@ -13,7 +13,7 @@ public class TotalRoundValidator {
     }
 
     public static void validatePositive(int value) {
-        if (value < 0) {
+        if (value <= 0) {
             throw new IllegalArgumentException(NOT_POSITIVE_INPUT.getMessage());
         }
     }
