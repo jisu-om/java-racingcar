@@ -2,7 +2,12 @@ package racingcar.controller;
 
 import racingcar.domain.Cars;
 import racingcar.domain.TotalRound;
+import racingcar.dto.CarDto;
+import racingcar.dto.CarsDto;
 import racingcar.view.OutputView;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class PlayController {
     private final OutputView outputView;
@@ -20,6 +25,7 @@ public class PlayController {
     }
 
     public void play() {
+        outputView.printStartResult();
         long currentRound = 0;
         while (currentRound < totalRound.getTotalRound()) {
             playRound();
@@ -28,8 +34,11 @@ public class PlayController {
     }
 
     private void playRound() {
-        //TODO round 실행 -> 실행결과 dto로 생성 () -> outputView 에 전달하여 라운드 결과 출력
         cars.play();
-
+        List<CarDto> carDtos = cars.provideCars().stream()
+                .map(car -> CarDto.of(car.provideName(), car.providePosition()))
+                .toList();
+        CarsDto carsDto = CarsDto.from(carDtos);
+        outputView.printResult(carsDto);
     }
 }

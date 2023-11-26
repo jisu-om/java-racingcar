@@ -16,4 +16,8 @@ public class Cars {
     public void play() {
         cars.forEach(Car::play);
     }
+
+    public List<Car> provideCars() {
+        return cars;
+    }
 }

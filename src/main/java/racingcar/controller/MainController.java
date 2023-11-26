@@ -46,7 +46,7 @@ public class MainController {
 
     private TotalRound createTotalRound() {
         return readUserInput(() -> {
-            long totalRound = inputView.readTotalRound();
+            int totalRound = inputView.readTotalRound();
             return TotalRound.from(totalRound);
         });
     }

@@ -27,9 +27,9 @@ public class InputView {
         return carNamesInput;
     }
 
-    public long readTotalRound() {
+    public int readTotalRound() {
         System.out.println(TOTAL_ROUND_MESSAGE);
         String input = Console.readLine();
-        return TotalRoundValidator.safeParseLong(input);
+        return TotalRoundValidator.safeParseInt(input);
     }
 }

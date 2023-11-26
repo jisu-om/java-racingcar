@@ -6,7 +6,7 @@ import static racingcar.constants.Constants.MOVE_THRESHOLD;
 
 public class Car {
     private final String name;
-    private long position;
+    private int position;
 
     private Car(String name) {
         this.name = name;
@@ -32,7 +32,7 @@ public class Car {
         return name;
     }
 
-    public long providePosition() {
+    public int providePosition() {
         return position;
     }
 }
