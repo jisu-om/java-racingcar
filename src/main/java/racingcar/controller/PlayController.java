@@ -9,6 +9,7 @@ import racingcar.dto.WinnerNamesDto;
 import racingcar.view.OutputView;
 
 import java.util.List;
+import java.util.stream.IntStream;
 
 public class PlayController {
     private final OutputView outputView;
@@ -27,11 +28,8 @@ public class PlayController {
 
     public void play() {
         outputView.printStartResult();
-        long currentRound = 0;
-        while (currentRound < totalRound.getTotalRound()) {
-            playRound();
-            currentRound++;
-        }
+        IntStream.range(0, totalRound.getTotalRound())
+                .forEach(i -> playRound());
         printWinners();
     }
 
