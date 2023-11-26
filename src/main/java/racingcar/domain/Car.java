@@ -1,6 +1,7 @@
 package racingcar.domain;
 
 import racingcar.utils.CarNamesValidator;
+import racingcar.utils.RandomNumberGenerator;
 
 import static racingcar.constants.Constants.MOVE_THRESHOLD;
 
