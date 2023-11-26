@@ -1,6 +1,8 @@
 package racingcar.domain;
 
 import java.util.List;
+import java.util.OptionalInt;
+import java.util.stream.Collectors;
 
 public class Cars {
     private final List<Car> cars;
@@ -17,7 +19,18 @@ public class Cars {
         cars.forEach(Car::play);
     }
 
+    public List<Car> decideWinner() {
+        int maxPosition = cars.stream()
+                .mapToInt(Car::providePosition)
+                .max()
+                .getAsInt();
+
+        return cars.stream()
+                .filter(car -> car.isEqualPosition(maxPosition))
+                .toList();
+    }
+
     public List<Car> provideCars() {
-        return cars;
+        return List.copyOf(cars);
     }
 }

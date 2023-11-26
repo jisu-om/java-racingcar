@@ -1,13 +1,14 @@
 package racingcar.controller;
 
+import racingcar.domain.Car;
 import racingcar.domain.Cars;
 import racingcar.domain.TotalRound;
 import racingcar.dto.CarDto;
 import racingcar.dto.CarsDto;
+import racingcar.dto.WinnerNamesDto;
 import racingcar.view.OutputView;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class PlayController {
     private final OutputView outputView;
@@ -31,6 +32,7 @@ public class PlayController {
             playRound();
             currentRound++;
         }
+        printWinners();
     }
 
     private void playRound() {
@@ -40,5 +42,11 @@ public class PlayController {
                 .toList();
         CarsDto carsDto = CarsDto.from(carDtos);
         outputView.printResult(carsDto);
+    }
+
+    private void printWinners() {
+        List<Car> winners = cars.decideWinner();
+        WinnerNamesDto winnerNamesDto = WinnerNamesDto.from(winners);
+        outputView.printWinners(winnerNamesDto);
     }
 }

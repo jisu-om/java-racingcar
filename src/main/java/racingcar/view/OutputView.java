@@ -2,6 +2,7 @@ package racingcar.view;
 
 import racingcar.dto.CarDto;
 import racingcar.dto.CarsDto;
+import racingcar.dto.WinnerNamesDto;
 
 import java.util.List;
 
@@ -11,6 +12,8 @@ public class OutputView {
     private static final String RESULT_FORMAT = "%s : %s";
     private static final String MOVE_SYMBOL = "-";
     private static final String WINNER_MESSAGE_FORMAT = "최종 우승자 : %s";
+    private static final String WINNER_DELIMITER = ", ";
+    private static final int SINGLE_WINNER = 1;
 
 
     private OutputView() {
@@ -45,7 +48,9 @@ public class OutputView {
         System.out.println(resultMessage);
     }
 
-    public void printWinners() {
-        String.format(WINNER_MESSAGE_FORMAT, );
+    public void printWinners(WinnerNamesDto dto) {
+        String winnerNames = String.join(WINNER_DELIMITER, dto.getNames());
+        String message = String.format(WINNER_MESSAGE_FORMAT, winnerNames);
+        System.out.println(message);
     }
 }
